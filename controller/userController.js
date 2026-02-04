@@ -87,7 +87,7 @@ const login = async (req, res, next) => {
                 userName,
                 id: selectedUser._id,
                 role: newUser ? "user" : selectedUser.role,
-                email: selectedUser.emil,
+                email: selectedUser.email,
             },
             "1h",
         );
