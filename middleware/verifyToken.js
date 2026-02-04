@@ -10,7 +10,6 @@ export default async (req, res, next) => {
         const decoded = jws.verify(token, process.env.privateKey);
         req.user = decoded;
         next();
-        // console.log(decoded);
     } catch (err) {
         if (err.name == "JsonWebTokenError")
             return res.status(401).send({ state: "error", msg: "expire token" });
