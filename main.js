@@ -21,13 +21,16 @@ mongoose
 const app = express();
 app.use(express.json());
 app.use("/users", userRoute);
-app.get("/adminPage", verifyToken, allowTo(["admin", "user"]), (req, res) => {
+app.get("/adminPage", verifyToken, allowTo(["admin"]), (req, res) => {
     console.log(req.decoded);
 
     res.send("inside admin page");
 });
-app.all("/*splat", (req, res) => {
-    res.status(404).send({ state: "error", msg: "this link not exist" });
+app.all("/*splat", (req, res,next) => {
+    console.log(req.url)
+    const error=new Error("this page not exist")
+    error.statusCode=404
+    next(error)
 });
 app.use(errorMiddleWare);
 app.listen(process.env.port, () =>

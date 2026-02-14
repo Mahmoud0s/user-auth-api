@@ -12,11 +12,14 @@ import allowTo from "../middleware/allowTo.js";
 const userRoute = express.Router();
 
 userRoute.post("/login", login);
+userRoute.post("/register", createUser);
 userRoute
     .route("/:userId")
     .get(verifyToken, allowTo(["user", "admin"]), getSingleUser)
-    .put(verifyToken, allowTo(["user", "admin"]), updateUser)
+    .put(verifyToken, allowTo(["admin"]), updateUser)
     .delete(verifyToken, allowTo(["admin"]), deleteUser);
-userRoute.route("/").post(createUser).get(getAllUsers);
+userRoute
+    .route("/")
+    .get(verifyToken, allowTo(["user", "admin"]), getAllUsers);
 
 export default userRoute;

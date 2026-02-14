@@ -1,8 +1,11 @@
 import jws from "jsonwebtoken";
 export default async (req, res, next) => {
-    const token = (
-        req.headers["authorization"] || req.headers["Authorization"]
-    ).split(" ")[1] || null;
+    const authHeader =req.headers["authorization"] || req.headers["Authorization"];
+    if(!authHeader)
+        return res.status(401).send({state:"error" , msg:"require a token"})
+
+    const token = authHeader.split(" ")[1] || null;
+
     if (!token)
         return res.status(401).send({ state: "error", msg: "require a token" });
 
