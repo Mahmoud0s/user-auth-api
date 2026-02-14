@@ -27,7 +27,7 @@ app.get("/adminPage", verifyToken, allowTo(["admin", "user"]), (req, res) => {
     res.send("inside admin page");
 });
 app.all("/*splat", (req, res) => {
-   res.status(404).send({ state: "error", msg: "this link not exist" });
+    res.status(404).send({ state: "error", msg: "this link not exist" });
 });
 app.use(errorMiddleWare);
 app.listen(process.env.port, () =>
