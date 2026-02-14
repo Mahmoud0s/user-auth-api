@@ -18,26 +18,24 @@ Protected Routes
 
 ## Project Structure
 
-src/
- ├─ models/
- ├─ controllers/
- ├─ routes/
- ├─ middleware/
- ├─ utils/
- └─ main.js
+src
+ *  models/
+ *  controllers/
+ *  routes/
+ *  middleware/
+ *  utils/
+ *  main.js
 
  ## API Endpoints
-| Method | Endpoint     | Description   |
-| ------ | ------------ | ------------- |
-| POST   | /users       | Register user |
-| POST   | /users/login | Login user    |
-
-| Method | Endpoint   | Access       |
-| ------ | ---------- | ------------ |
-| GET    | /users     | Admin        |
-| GET    | /users/:id | User / Admin |
-| PUT    | /users/:id | User / Admin |
-| DELETE | /users/:id | Admin        |
+| Method     | Endpoint      | Access        | Description                |
+| :-----     | :------------ | :------------ | :------------------------- |
+| **POST**   | `/users/register`   | AnyOne        | User registration          |
+| **POST**   | `/users/login`      | AnyOne        | User login                 |
+| **GET**    | `/users`      | User / Admin  | Get all users              |
+| **GET**    | `/users/:id`  | User / Admin  | Get single user details    |
+| **PUT**    | `/users/:id`  | User / Admin  | Update user information    |
+| **DELETE** | `/users/:id`  | Admin         | Delete a user              |
+| **GET**    | `/adminPage`  | Admin         | Access to Admin Dashboard  |
 
 ## ⚙️ Environment Variables
 create .env File
@@ -50,4 +48,4 @@ PRIVATE_KEY=your_jwt_secret
 npm install
 npm run dev
 
-### Created BY mahmoud osman
+### Created BY **mahmoud osman**
