@@ -7,18 +7,18 @@ Provides secure user registration and login using JWT authentication with role-b
 
 ## Features
 
-User Registration
-User Login
-JWT Authentication
-Role-Based Access Control (User / Admin)
-Input Validation
-Password Hashing 
-Centralized Error Handling
-Protected Routes
+* User Registration
+* User Login
+* JWT Authentication
+* Role-Based Access Control (User / Admin)
+* Input Validation
+* Password Hashing 
+* Centralized Error Handling
+* Protected Routes
 
 ## Project Structure
 
-src
+src / 
  *  models/
  *  controllers/
  *  routes/
@@ -39,9 +39,13 @@ src
 
 ## ⚙️ Environment Variables
 create .env File
-PORT=your_port
-MONGO_URI=your_mongodb_connection
-PRIVATE_KEY=your_jwt_secret
+```
+userNameMongo=mongoDb_name
+passMongo=password
+clusterName=mongoDb_ClusterName
+port=Your_port
+privateKey=Private_Key
+```
 
 ## Installation & Run
 
